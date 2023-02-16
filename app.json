@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/home/home",
+
+    "pages/info/info",
+    "pages/my/my",
+
+    "pages/index/index",
+    "pages/feed/feed",
+    "pages/community/community"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#A1A1A1",
+    "selectedColor": "#4766ce",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home_s.png"
+    },
+    {
+      "pagePath": "pages/feed/feed",
+      "text": "养殖",
+      "iconPath": "images/feed.png",
+      "selectedIconPath": "images/feed_s.png"
+    },
+    {
+      "pagePath": "pages/community/community",
+      "text": "社区",
+      "iconPath": "images/community.png",
+      "selectedIconPath": "images/community_s.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "images/info.png",
+      "selectedIconPath": "images/info_s.png"
+    }
+  ]
+  }
+}
