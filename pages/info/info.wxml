@@ -1,0 +1,42 @@
+<!-- 个人信息 -->
+<view class="content">
+ 
+  
+
+    <view class='avatar'>
+      <text class="item-text">我的头像</text>
+      <!-- <view> -->
+      
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="item-avater" src="{{avatarUrl}}"></image>
+</button> 
+
+      <!-- <image bindtap='handlerAvatar' class='item-avater' src='{{avatarUrl}}'></image> -->
+   
+    <!-- </view> -->
+  </view>
+
+  <form catchsubmit="formSubmit">
+
+    <view class='form-item'>
+            
+      <text class="item-text">我的昵称</text>
+          <input placeholder='请输入昵称' type="nickname" name="nickname" value='{{nickname}}'></input>
+</view>
+
+
+<view class="form-item">
+            <text class="item-text">性别</text>
+            <picker bindchange="pickSex" value="{{ gender }}" name="sex" range="{{columns}}">
+                <view class="item-picker">
+                  <!-- {{ columns[gender] == "" ? "请输入性别" : "" }}  -->
+                   {{ columns[gender] }}
+                </view>
+            </picker>
+        </view>
+
+        <button class="btn" formType="submit">保存</button>
+
+      </form>
+
+</view>
