@@ -1,0 +1,14 @@
+#page-article-list {
+  padding-top: 90rpx
+}
+
+#page-article-list #section-nav {
+  position: fixed;
+  top: 0;
+  z-index: 9999
+}
+
+.con{
+  border-bottom: 2rpx solid #4766ce;
+  color: #4766ce;
+}

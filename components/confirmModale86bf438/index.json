@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "navBar": "/components/weapp-navigation-bar04dcb22a/navBar",
+        "confirm-modal": "/components/confirmModale86bf438/index"
+    }
+}

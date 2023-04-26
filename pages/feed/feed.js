@@ -5,6 +5,46 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 商品数据
+    fishInfo: 
+      {
+        image: "/images/fish.png",
+   
+        name: "金鱼",
+        time: "2023/3/17"
+  
+      },
+
+     cycleSetting:[
+      {
+        id: 1,
+        category: "喂食次数",
+        plan: "每日一次",
+        lastTime: null,
+      },
+      {
+        id: 2,
+        category: "换水周期",
+        plan: "7天",
+        lastTime: "2023/03/22",
+      }
+     ],
+     record:[
+      {
+        id: 1,
+        recordDate: "06-17 23:15",
+        content: "今日已换水",
+        type:"换水",
+      },
+      {
+        id: 2,
+        recordDate: "06-18",
+        content: "今日已喂食",
+        type:"喂食",
+      }
+     ]
+    
+    
 
   },
 

@@ -1,0 +1,33 @@
+<view id="page-article-detail" class="container-full">
+  <view id="section-article" class="bg-white text-black padding-tb-sm radius shadow-lg">
+    <view class="area-header solids-bottom">
+      <image mode="aspectFill" class="image-cover" src="{{ model.cover }}"></image>
+
+      <view class="area-header-content padding-tb-sm">
+        <view class="part-title padding-lr">
+          <view class="text-xl">{{ model.title }}</view>
+        </view>
+
+        <view class="part-info margin-top-xs padding-lr">
+          <!-- <text>{{ model.author }}</text> -->
+            <text>{{ model.published_at }}</text>
+          
+
+          <button class="btn-thumb cu-btn icon shadow fr" bind:tap="likeHandler"
+            data-entity-id="{{ model.id }}" data-entity-class="{{ model.entity_class }}" data-type="like" data-value="{{ !i_have_like }}">
+      <text wx:if="{{ i_have_like }}" class="cuIcon-favorfill"></text>
+      <text wx:else class="cuIcon-favor"></text>
+    </button>
+        </view>
+      </view>
+
+    </view>
+
+
+    <view id="part-body" class="padding-lr margin-top">
+      <text id="text">{{ model.content }}"</text>
+    </view>
+  </view>
+</view>
+ 
+ 

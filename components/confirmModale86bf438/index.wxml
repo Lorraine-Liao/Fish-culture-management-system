@@ -1,0 +1,12 @@
+<view class="modal-mask" style="{{mpxShow||mpxShow===undefined?'':'display:none;'}}">
+    <view class="modal-box">
+        <view class="modal-title">{{title}}</view>
+        <view class="modal-content">
+            <slot></slot>
+        </view>
+        <view class="btns">
+            <view bindtap="cancel" class="cancel-btn" style="{{cancelStyle}}" wx:if="{{showCancel}}">{{cancelText}}</view>
+            <view bindtap="confirm" class="confirm-btn" style="{{confirmStyle}}">{{confirmText}}</view>
+        </view>
+    </view>
+</view>

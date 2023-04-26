@@ -1,0 +1,85 @@
+<!-- 个人信息 -->
+<view class="content">
+ 
+  <view class='infoTitle margin-top'>观赏鱼信息</view>
+
+ <view class='avatar'>
+   <text class="title">观赏鱼图片</text>
+  
+   
+     <button class="avatar-wrapper fr" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+   <image class="item-avater" src="{{avatarUrl}}"></image>
+</button> 
+
+   <!-- <image bindtap='handlerAvatar' class='item-avater' src='{{avatarUrl}}'></image> -->
+
+ <!-- </view> -->
+</view>
+
+<form catchsubmit="formSubmit">
+
+ <view class='cu-form-group'>
+         
+   <text class="title">观赏鱼名称</text>
+       <input placeholder='请输入名称' name="name"></input>
+</view>
+
+
+<view class='cu-form-group'>
+         <text class="title">养殖开始日期</text>
+         <picker mode="date" value="{{startDate}}" start="2015-09-01" end="2025-09-01" bindchange="startDateChange">
+			<view class="picker">
+				{{startDate}}
+			</view>
+    </picker>
+     </view>
+
+     <view class='infoTitle margin-bottom'>养殖周期设置</view>
+
+     <view class="cu-form-group">
+		<view class="title">喂养次数</view>
+		<picker bindchange="feedPickerChange" value="{{index}}" range="{{feedPicker}}">
+			<view class="picker">
+				{{index?feedPicker[index]:'选择'}}
+			</view>
+		</picker>
+	</view>
+
+
+  <!-- <view class="cu-form-group margin-top" wx:if="{{feedIndex!=0}}">
+		<view class="title">上传喂养日期</view>
+    <picker mode="date" value="{{lastFeedDate}}" start="2015-09-01" end="2025-09-01" bindchange="lastFeedDateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+    </picker>
+	</view> -->
+
+
+  <view class="cu-form-group">
+		<view class="title">换水周期</view>
+		<picker bindchange="waterPickerChange" value="{{index}}" range="{{waterPicker}}">
+			<view class="picker">
+				{{index?waterPicker[index]:'选择'}}
+			</view>
+		</picker>
+	</view>
+
+
+  <view class="cu-form-group" wx:if="{{waterIndex!=0}}">
+		<view class="title">上传换水日期</view>
+    <picker mode="date" value="{{lastWaterDate}}" start="2015-09-01" end="2025-09-01" bindchange="lastWaterDateChange">
+			<view class="picker">
+				{{lastWaterDate}}
+			</view>
+    </picker>
+	</view>
+
+
+     <button class="btn" formType="submit">保存</button>
+
+   </form>
+
+ 
+
+</view>

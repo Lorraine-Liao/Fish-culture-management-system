@@ -1,93 +1,115 @@
-// pages/my/my.js
-// 获取应用实例
-const app = getApp();
+const ENV = require('../../libraries/env.js');
+const APP = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-
-  toOrder: function () {
-
-},
-
-// 获取用户信息方法
-getUserProfile: function () {
-  // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
-  // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗 
-  wx.getUserProfile({
-    desc: '获取个人信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-    success: (res) => {
-      console.log(res);
-      this.setData({
-        userInfo: res.userInfo,
-        hasUserInfo: true,    
-      })
-     // 将当前数据添加到缓存
-     wx.setStorageSync('userData',res.userInfo)
-    }
-  })
-},
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+    appGlobalData: null,
+    // defaultUserCoverImagePath: ENV.apiDomain + '/images/users/default-cover.jpg',
+    // defaultProfileWaveImagePath: ENV.apiDomain + '/images/users/profile-wave.gif',
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * onLoad
    */
-  onReady: function () {
+  onLoad() {
+    let _this = this;
 
+    _this.setData({appGlobalData: APP.globalData});
+    APP.authInitedCallback = function() {
+      _this.setData({appGlobalData: APP.globalData});
+    };
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * onShow
    */
-  onShow: function () {
-  
+  onShow() {
+    this.setData({appGlobalData: APP.globalData});
+    if (this.data.appGlobalData.isAuth) this.refreshUserInfo();
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 刷新用户信息
    */
-  onHide: function () {
+  refreshUserInfo() {
+    let _this = this;
+    /******/
+  if (this.data.appGlobalData.isAuth) {
+        _this.setData({appGlobalData: APP.globalData});
+        console.log(APP.globalData);
 
+        console.log(this.data.appGlobalData.userInfo.got_post_comment_num +"1111122222");
+        }
+
+    /*****/
+    // if (this.data.appGlobalData.isAuth) {
+    //   APP.REQUEST.GET('users/mine').then(function(result) {
+    //     APP.globalData.userInfo = result.data;
+    //     _this.setData({appGlobalData: APP.globalData});
+
+    //     // 更新 NoticeBadge
+    //     APP.resetNoticeBadgeAtTabBar();
+    //   }).catch(function() {
+    //     APP.AUTH.userLogout();
+    //     _this.setData({appGlobalData: APP.globalData});
+    //   });
+    // }
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * goto 用户登录页
    */
-  onUnload: function () {
-
+  gotoAuthPage() {
+    this.pageRouter.navigateTo({url: '../auth/index'});
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * goto 微信客服页
    */
-  onPullDownRefresh: function () {
-
-  },
+  // gotoCustomerServicePage() {
+  //   wx.openCustomerServiceChat({
+  //     extInfo: {url: 'https://work.weixin.qq.com/kfid/kfc7c6ec02919b92d1b'},
+  //     corpId: 'wwe1ddc5c6a7b1f32b',
+  //   });
+  // },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * logoutHandler
    */
-  onReachBottom: function () {
+  logoutHandler() {
+    let _this = this;
 
-  },
+    wx.showModal({
+      title: '提示',
+      content: '确认要退出登录吗？',
+      success: function(res) {
+        if (res.confirm) {
+          wx.showLoading({title: '正在退出登录'});
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+          ////添加
+          APP.globalData.isAuth = false;
+          APP.globalData.userInfo = null;
+          _this.setData({appGlobalData: APP.globalData});
+            wx.hideLoading();
 
+
+            ///////
+          // APP.AUTH.userLogout().then(function() {
+          //   wx.showModal({
+          //     title: '你已安全地退出登录',
+          //     showCancel: false,  
+          //   });
+          // }).catch(function() {
+          //   wx.showModal({
+          //     title: '你已退出登录',
+          //     showCancel: false,
+          //   });
+          // }).finally(function() {
+          //   _this.setData({appGlobalData: APP.globalData});
+          //   wx.hideLoading();
+          // });
+        }
+      },
+    });
   }
-})
+});

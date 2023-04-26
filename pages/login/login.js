@@ -1,0 +1,141 @@
+const APP = getApp();
+
+Page({
+  data: {
+    appGlobalData: null,
+    canUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'),
+    canGetUserProfile: wx.getUserProfile ? true : false,
+  },
+
+  /**
+   * onLoad
+   */
+  onLoad() {
+    APP.Notify({type: 'primary', message: '请登录'});
+
+    // if (wx.getUserProfile) {
+    //   console.log('1111');
+    //   this.setData({
+    //     canIUseGetUserProfile: true
+    //   })
+    // }
+  },
+
+  /**
+   * onShow
+   */
+  onShow() {
+    this.setData({appGlobalData: APP.globalData});
+  },
+
+  /**
+   * GetUserProfile handler
+   */
+  getUserProfileHandler() {
+    let _this = this;
+
+    wx.getUserProfile({
+      // lang: 'zh_CN',
+      desc: '登录小程序',
+      success: function(res) {
+        let wechatUserInfo = res.userInfo;
+        _this.userLoginHandler(wechatUserInfo);
+      },
+      fail: function(res) {
+        wx.showModal({
+          title: '登录失败',
+          content: '未能获取到用户信息',
+          showCancel: false,
+        })
+      }
+    });
+  },
+
+  /**
+   * GetUserInfo handler
+   */
+  getUserInfoHandler(event) {
+    let wechatUserInfo = event.detail.userInfo;
+
+    if (wechatUserInfo) {
+      this.userLoginHandler(wechatUserInfo);
+    } else {
+      wx.showModal({
+        title: '登录失败',
+        content: '未能获取到用户信息',
+        showCancel: false,
+      })
+    }
+  },
+
+  /**
+   * 用户登录处理
+   */
+  userLoginHandler(wechatUserInfo) {
+    console.log(wechatUserInfo);
+    APP.globalData.wechatUserInfo = wechatUserInfo;
+    // APP.WXLog.addFilterMsg('AUTH');
+    // APP.WXLog.info('userLoginHandler', wechatUserInfo);
+
+    wx.login({
+      success: res => {
+        wx.showLoading({title: '登录中'});
+
+        /************************/
+        // 通过 wx.login res.code 发送到后台, 从而完成用户的注册和登录
+        // APP.AUTH.userLogin(res.code, wechatUserInfo).then(function() {
+          // APP.AUTH.syncWechatUserInfo(wechatUserInfo);        // 不要同步用户资料
+        /************************/
+        console.log("444"+res.code);
+        //添加
+      
+         APP.globalData.isAuth = true;
+        //添加
+
+       //如果是首次登陆，跳转到信息填写页，填写头像昵称等
+       //wx.request后获取到openid，然后判断有没有登陆过，
+       if(!wx.getStorageSync('userData'))
+      {
+        var index = 0;
+       // 将当前数据添加到缓存
+         wx.setStorageSync('userData', wechatUserInfo)
+       // 跳转页面
+         wx.navigateTo({
+         url: '/pages/info/info?index=' + index,
+         })
+        }
+        //如果不是首次登陆，获取数据库数据，返回上一页
+        else{
+            APP.globalData.userInfo=wx.getStorageSync('userData'),
+            wx.navigateBack({
+            success(res) {
+              APP.Notify({message: '登录成功', type: 'primary'});
+            }
+          });
+        }
+        
+    //     ).catch(function(res) {
+    //       APP.WXLog.addFilterMsg('AUTH-ERR');
+
+    //       if (APP.REQUEST.wxRequestIsOk(res)) {
+    //         wx.showModal({
+    //           icon: 'error',
+    //           title: '登录失败',
+    //           content: '发生错误，请稍后重试',
+    //           showCancel: false,
+    //         });
+
+    //         APP.WXLog.warn('用户登录失败 => ', res.data);
+    //       } else {
+    //         APP.WXLog.error('用户登录失败 => ', res);
+    //       }
+    //     }).finally(function() {
+    //       wx.hideLoading();
+    //     });
+    //   },
+    // }
+    // );
+        }
+})
+}
+})

@@ -1,1 +1,180 @@
-/* pages/feed/feed.wxss */
+/* page{
+  background-color: #f5f6f7;
+} */
+
+page{
+  background-color: #fff;/**页面背景色**/
+}
+.header {/**顶部背景**/
+  position: relative;/**相对于自己文档的位置来定位的，对旁边的元素没有影响**/
+  height:260rpx;/**设置顶部背景高度**/
+  background: linear-gradient(to bottom, #708ec9, #5475b8);/**渐变色背景**/
+}
+.bg_ware {/**波浪动态图**/
+  position: absolute;/**相对于父标签来进行定位，这里的父标签的class是header**/
+  left: 0;/**相对于父标签左边界重合**/
+  bottom: -4rpx;/**相对于父标签下边界重合**/
+  width: 100%;/**相对于父标签宽度为100%**/
+  mix-blend-mode: screen;/**透明部分用底部背景色填充，简称滤色**/
+  height: 90rpx;/**图片高度**/
+}
+
+/* .info {
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 32rpx;
+  /* border-bottom: 2px solid #f5f6f7; */
+  /* 文本缩进 1em 一个字 */
+  /* text-indent: 1em;
+} */ 
+
+.fishlist {
+  display: flex;
+  padding: 40rpx 20rpx 10rpx 20rpx;
+  /* margin: 40rpx 30rpx; */
+  /* border-radius: 20rpx; */
+  color: #fff;
+  /* background: white; */
+}
+
+.fishlist .left {
+  width: 200rpx;
+  text-align: center;
+}
+
+.fishlist .right {
+  /* 剩下宽度分配给右侧 */
+  flex: 1;
+  /* 相对定位 */
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.fishlist .left image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.fishlist .right image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.fishlist .right .name {
+  font-size: 38rpx;
+  /* 溢出隐藏 */
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+/* .fishlist .right .time {
+  font-size: 26rpx;
+  color: #e9e9e9;
+} */
+
+.time {
+  font-size: 26rpx;
+  color: #e9e9e9;
+}
+
+.fishlist .right .icon {
+  position: absolute;
+  right: 30rpx;
+  bottom: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cycleTitle {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  /* border-bottom: 2px solid #f5f6f7; */
+  /* 文本缩进 1em 一个字 */
+  text-indent: 1em;
+}
+
+.cycleTitle .icon {
+  float: right;
+ margin-right: 30rpx;
+}
+
+.cycleTitle image {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.cycleItem{
+  background-color: #708abe;
+  color: #ffffff;
+  height: 240rpx;
+}
+.cycle .feed {
+  /* width: 250rpx;
+  height: 250rpx; */
+  height: 250rpx;
+   /* width: 200rpx; */
+
+}
+
+.cy{
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 34rpx;
+}
+
+.cycle {
+  /* flex布局 伸缩布局 */
+  display: flex;
+  /* 让下一级盒子换行 */
+  flex-wrap: wrap;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  margin-bottom: 24rpx;
+  margin: auto 30rpx;
+border-radius: 20rpx;
+}
+
+.cycle .item {
+  width: 50%;
+  text-align: center;
+  
+  /* margin-bottom: 30rpx; */
+  /* margin: auto 10rpx; */
+}
+
+.recordTitle {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  /* border-bottom: 2px solid #f5f6f7; */
+  /* 文本缩进 1em 一个字 */
+  text-indent: 1em;
+}
+
+.recordTitle .icon {
+  float: right;
+  /* margin-right: 10rpx; */
+ font-size: 50rpx;
+ /* padding-right: 20rpx; */
+}
+
+.cu-item{
+  padding: 20rpx 30rpx 20rpx 120rpx;
+}
+
+.cu-time{
+  /* margin: 0 20rpx;
+  width: 140rpx; */
+  width: 100rpx; 
+}
+
+.cu-tag{
+  padding: 14rpx 24rpx;
+}
+
+.tagBg{
+  background-color: #5475b8;
+  color: #ffffff;
+  }

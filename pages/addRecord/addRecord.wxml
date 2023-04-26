@@ -1,0 +1,30 @@
+<view class="container-full" id="page-posts-create">
+  <form d-bind:submit="createPost">
+    <view class="contentTitle">
+    <text>内容</text>
+    
+    </view>
+    <!-- 文本 -->
+    <view class="content cu-form-group bg-white margin-lr-sm">
+      <textarea class="input-content" name="content" placeholder="填写养殖记录，可记录养护操作 ~ "
+                auto-focus="true" maxlength="-1" auto-height="{{ true }}"
+                bind:input="setInputValue" data-field="content">
+      </textarea>
+    </view>
+
+    <view class="contentTitle">
+    <text>选择类型</text>
+    </view>
+    <view class="padding-lr-sm flex flex-wrap">
+    <view class="padding-xs" wx:for="{{typeList}}" wx:key="*this" bindtap="chooseType" data-index="{{index}}">
+        <view class="cu-tag round bg {{typeId == item.id ? 'tagBg' : 'tagBg2'}}">{{item.name}}</view>
+        <!-- <view class="cu-tag round bg-grey">{{item.name}}</view> -->
+  </view>
+</view>
+
+  
+    <view id="section-options">
+      <button class="btn-submit cu-btn bg-blue lg round margin-top-sm" d-form-type="submit" bind:tap="createPostHandler">发布</button>
+    </view>
+  </form>
+</view>

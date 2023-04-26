@@ -1,0 +1,18 @@
+<navigator url="/pages/article_detail/article_detail?id={{ article.id }}" class="cu-card article no-card solid-bottom">
+  <view class="shadow cu-item">
+    <view class="title">
+      <view class="text-cut">{{ article.title }}</view>
+    </view>
+    <view class="content">
+      <image mode="aspectFill" src="{{ article.cover }}"></image>
+      <view class="desc">
+        <view class="text-content">{{ article.content }}</view>
+        <view class="area-tags">
+            <view class="cu-tag bg-blue light sm round">{{ article.published_at }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</navigator>
+

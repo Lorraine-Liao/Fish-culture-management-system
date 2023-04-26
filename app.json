@@ -1,19 +1,31 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
 
-    "pages/info/info",
-    "pages/my/my",
+    "pages/allRecord/allRecord",
 
-    "pages/index/index",
+    "pages/addRecord/addRecord",
     "pages/feed/feed",
-    "pages/community/community"
+    "pages/article/article",
+    "pages/fishImage/fishImage",
+    "pages/about/about",
+    "pages/my/my",
+    "pages/userHome/userHome",
+    "pages/info/info",
+    "pages/login/login",
+    "pages/fishInfo/fishInfo",
+    "pages/like/like",
+    "pages/article_detail/article_detail",
+    "pages/index/index",
+    "pages/community/community",
+    "pages/create/create",
+    "pages/detail/detail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5475b8",
+    "navigationBarTitleText": "观赏鱼小程序",
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
@@ -22,30 +34,38 @@
     "selectedColor": "#4766ce",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页",
-      "iconPath": "images/home.png",
-      "selectedIconPath": "images/home_s.png"
-    },
-    {
-      "pagePath": "pages/feed/feed",
-      "text": "养殖",
-      "iconPath": "images/feed.png",
-      "selectedIconPath": "images/feed_s.png"
-    },
-    {
-      "pagePath": "pages/community/community",
-      "text": "社区",
-      "iconPath": "images/community.png",
-      "selectedIconPath": "images/community_s.png"
-    },
-    {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "images/info.png",
-      "selectedIconPath": "images/info_s.png"
-    }
-  ]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_s.png"
+      },
+      {
+        "pagePath": "pages/feed/feed",
+        "text": "养殖",
+        "iconPath": "images/feed.png",
+        "selectedIconPath": "images/feed_s.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社区",
+        "iconPath": "images/community.png",
+        "selectedIconPath": "images/community_s.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/info.png",
+        "selectedIconPath": "images/info_s.png"
+      }
+    ]
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "usingComponents": {
+    "van-notify": "@vant/weapp/notify/index",
+    "van-sticky": "@vant/weapp/sticky/index"
   }
 }

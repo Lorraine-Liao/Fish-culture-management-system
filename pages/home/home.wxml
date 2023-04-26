@@ -1,5 +1,3 @@
-<van-notify id="van-notify"></van-notify>
-
 <view id="page-home-index-club" class="container-full">
   <!-- 头部 -->
   <view id="section-header">
@@ -13,30 +11,36 @@
 
     <!-- 部分内容 -->
     <view id="part-menu" class="cu-list grid col-5">
-      <navigator class="cu-item" url="/modules/system/pages/about/index">
-       <view class="cuIcon-news text-blue">
-        <text>社区介绍</text>
+      <navigator class="cu-item" url="/pages/fishImage/fishImage">
+       <!-- <view class="cuIcon-pic text-blue"> -->
+       <view class="fishImage">
+        <image src="/images/fishImage.png"></image>
+        <text>鱼圈图鉴</text>
        </view>
+      
+       <!-- </view> -->
       </navigator>
-      <navigator class="cu-item" url="/modules/system/pages/regulation/index">
+      <!-- <navigator class="cu-item" url="/modules/system/pages/regulation/index">
         <view class="cuIcon-read text-yellow">
           <text>社区准则</text>
         </view>
-      </navigator>
-      <view class="cu-item" bind:tap="switchTab" data-url="/modules/article/pages/index/index">
+      </navigator> -->
+      <navigator class="cu-item" url="/pages/article/article">
        <view class="cuIcon-form text-cyan">
-        <text>文章</text>
+        <text>科普文章</text>
        </view>
-      </view>
-      <view class="cu-item" bind:tap="switchTab" data-url="/modules/post/pages/index/index">
-        <view class="cuIcon-album text-brown">
-          <text>动态</text>
-       </view>
-      </view>
-      <view class="cu-item" bind:tap="switchTab" data-url="/modules/activity/pages/index/index">
+    </navigator>
+      <view class="cu-item" bind:tap="switchTab" data-url="/pages/feed/feed">
         <view class="cuIcon-calendar text-green">
-        <text>活动</text>
-      </view></view>
+        <text>养殖计划</text>
+      </view>
+      </view>
+      <view class="cu-item" bind:tap="switchTab" data-url="/pages/community/community">
+        <view class="cuIcon-album text-brown">
+          <text>社区动态</text>
+       </view>
+      </view>
+    
     </view>
   </view>
 
@@ -54,23 +58,23 @@
       </view>
     </van-sticky>
 
-    <block wx:if="{{ feeds.length <= 0 }}">
+    <block wx:if="{{ recommendArticles.length <= 0 }}">
       <van-empty description="没有内容"></van-empty>
     </block>
-    <block wx:for="{{ feeds }}" wx:key="id" wx:for-item="feed" wx:for-index="feedIndex">
-      <block wx:if="{{ feed.entity_class === 'Modules\\Post\\Entities\\Post' }}">
+    <block wx:for="{{ recommendArticles }}" wx:key="id" wx:for-item="recommendArticles" wx:for-index="articleIndex">
+      <!-- <block wx:if="{{ feed.entity_class === 'Modules\\Post\\Entities\\Post' }}">
         <view class="item-post margin-bottom-sm">
           <post-item post="{{ feed.entity }}" contentFullText="{{ false }}" action-bar-visible="{{ true }}" />
         </view>
-      </block>
+      </block> -->
 
-      <block wx:if="{{ feed.entity_class === 'Modules\\Article\\Entities\\Article' }}">
+      <block>
         <view class="item-article margin-bottom-sm">
-          <article-item article="{{ feed.entity }}"></article-item>
+          <article-item article="{{ recommendArticles }}"></article-item>
         </view>
       </block>
 
-      <block wx:if="{{ feed.entity_class === 'Modules\\Activity\\Entities\\Activity' }}">
+      <!-- <block wx:if="{{ feed.entity_class === 'Modules\\Activity\\Entities\\Activity' }}">
         <view class="item-activity margin-bottom-sm">
           <view class="cu-card no-card case activity-card solids-top">
             <navigator url="/modules/activity/pages/detail/index?id={{ feed.entity.id }}" class="cu-item shadow">
@@ -93,7 +97,7 @@
             </navigator>
           </view>
         </view>
-      </block>
+      </block> -->
     </block>
   </view>
 </view>

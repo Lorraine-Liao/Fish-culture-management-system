@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "动态详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "post-item": "../../components/post-item/index",
+    "comment-list": "../../components/comment-list/index",
+    "comment-form-modal": "../../components/comment-form-modal/index"
+  }
+}

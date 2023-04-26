@@ -1,0 +1,11 @@
+<block wx:if="{{ likeArticles.length <= 0 }}">
+  <van-empty description="没有收藏文章"></van-empty>
+</block>
+<block wx:for="{{ likeArticles }}" wx:key="id" wx:for-item="likeArticles" wx:for-index="articleIndex">
+
+  <block>
+    <view class="item-article margin-bottom-sm">
+      <article-item article="{{ likeArticles }}"></article-item>
+    </view>
+  </block>
+</block>

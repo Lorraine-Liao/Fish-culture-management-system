@@ -1,0 +1,10 @@
+<view id="page-article-list" class="container-full">
+  <scroll-view id="section-nav" class="bg-white nav" scroll-x scroll-with-animation>
+    <block wx:for="{{ tabs }}" wx:for-item="tab" wx:key="id">
+      <view bind:tap="tabSelectHandler" data-id="{{ tab.id }}" class="cu-item {{ tabId === tab.id ? 'con' : null }}">
+      {{ tab.name }}
+      </view>
+    </block>
+  </scroll-view>
+  
+</view>

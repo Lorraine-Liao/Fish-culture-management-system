@@ -1,2 +1,115 @@
-<!--pages/feed/feed.wxml-->
-<text>pages/feed/feed.wxml</text>
+<van-sticky>
+
+<view class="header">
+	<image class="bg_ware" src="/images/bg_wave.png"></image>
+
+  <!-- <view class="info">
+  <text>观赏鱼信息</text>
+</view> -->
+
+<view class="fishlist" bindtap="toDetails">
+  <view class="left">
+    <image src="{{fishInfo.image}}"></image>
+  </view>
+  <view class="right">
+    <view>
+      <view class="name">
+        <text>{{fishInfo.name}}</text>
+      </view>
+      <view class="time">
+        <text>{{fishInfo.time}}</text>
+      </view>
+
+      <navigator class=icon" url="/pages/fishInfo/fishInfo">
+      <!-- <view class="icon"> -->
+        <image src="/images/edit.png"></image>
+      <!-- </view> -->
+      </navigator>
+    </view>
+  </view>
+</view>
+
+</view>
+
+</van-sticky>
+
+
+<view class="cycleTitle">
+  <text>周期设置</text>
+  <!-- <view class="icon">
+        <image src="/images/edit.png"></image>
+      </view> -->
+</view>
+
+<!-- <view class="cycle">
+  
+<view class="item" wx:for="{{cycleSetting}}" wx:key="*this">
+
+    <view class="feed bg-grey padding-sm margin-xs radius">
+    <view>
+   
+      {{item.category}}
+      </view>
+      <view class="cy">
+      {{item.plan}}
+      </view>
+      
+      <view class="cy" wx:if="{{item.lastTime}}">
+      {{item.lastTime}}
+      </view>
+  
+    </view>
+
+</view>
+
+</view>
+ -->
+
+
+
+<view class="grid col-2 padding-sm">
+  <view class="item padding-sm" wx:for="{{cycleSetting}}" wx:key="*this">
+
+  <!-- <view class=""> -->
+    <view class="cycleItem bg-gradual-Cyan padding radius text-center shadow-blur">
+      <view class="fl text-sub">{{item.category}}</view>
+      <view class="margin-top-xl text-xl padding-top-sm text-bold"> {{item.plan}}</view>
+      <view class="margin-top-xs time" wx:if="{{item.lastTime}}">{{item.lastTime}}</view>
+    </view>
+  </view>
+<!-- </view> -->
+</view>
+
+<view class="recordTitle">
+  <text>最近养殖记录</text>
+
+  <navigator class="icon cuIcon-sort margin-right-lg" url="/pages/fishInfo/fishInfo">
+  </navigator>
+  <navigator class="icon cuIcon-add" url="/pages/addRecord/addRecord">
+  </navigator>
+  <!-- <view class="icon cuIcon-sort margin-right-lg"> -->
+    <!-- <text>查看全部></text> -->
+      <!-- </view> -->
+      <!-- <view class="icon cuIcon-add">
+  </view> -->
+</view>
+
+<view class="item" wx:for="{{record}}" wx:key="*this">
+<view class="cu-timeline">
+  <!-- <view class="cu-time">{{item.recordDate}}</view> -->
+  <view class="cu-item">
+    <view class="content">
+      {{item.recordDate}}
+      <view class="text-lg margin-top-xs">
+        {{item.content}}
+      </view>
+      <view class="area-tags">
+        <view class="cu-tag bg margin-top-sm light round tagBg">{{ item.type }}</view>
+        </view>
+    </view>
+  </view>
+</view>
+ 
+</view>
+
+

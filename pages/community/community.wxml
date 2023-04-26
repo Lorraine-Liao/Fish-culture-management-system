@@ -1,2 +1,25 @@
-<!--pages/community/community.wxml-->
-<text>pages/community/community.wxml</text>
+<view id="page-posts-index" class="container-full">
+  <!-- 动态列表 -->
+  <view id="section-posts">
+    <view wx:if="{{ posts.length > 0 }}">
+      <post-list posts="{{ posts }}" bind:updatePostDataEvent="listenUpdatePostDataEvent" />
+    </view>
+
+    <view wx:else style="padding-top:100px;">
+      <van-empty description="暂无动态"></van-empty>
+    </view>
+  </view>
+
+  <!-- 创建动态按钮 -->
+  <navigator wx:if="{{ appGlobalData.isAuth }}" url="/pages/create/create" class="btn-create cu-btn round createBtn">
+    <view class="icon cuIcon-post">
+    </view>
+    </navigator>
+  <navigator wx:else url="/pages/login/login" class="btn-create cu-btn bg-blue round createBtn">
+    <view class="icon cuIcon-post">
+    </view>
+  </navigator>
+</view>
+
+<!-- 评论模态框 -->
+<comment-form-modal id="comp-comment-form-modal" bind:commentSuccessfulEvent="commentSuccessfulHandler" />

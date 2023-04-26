@@ -1,0 +1,14 @@
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="请输入关键字" confirm-type="search" bindinput="searchFish"></input>
+  </view>
+</view>
+
+<view class="cu-list grid col-3">
+  <view class="item" wx:for="{{fish}}" wx:key wx:if="{{item.isShow}}">
+    <!-- <text class="cuIcon-{{item.name}} lg text-gray"></text> -->
+    <image src="{{item.url}}" mode="aspectFill"></image>
+    <text>{{item.name}}</text>
+  </view>
+</view>

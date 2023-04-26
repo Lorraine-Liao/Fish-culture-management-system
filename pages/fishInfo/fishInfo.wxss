@@ -1,0 +1,82 @@
+/* pages/profile/profile.wxss */
+page {
+  background-color: #f5f6f7;
+}
+
+  .content {
+    background-color: #fff;
+    margin: 30rpx 20rpx auto 20rpx;
+    font-size: 14px;
+    padding: 20rpx 20rpx;
+    border-radius: 20rpx;
+  }
+  
+  .infoTitle{
+    text-align: center;
+    color: #000;
+    font-size: 35rpx;
+    margin-top: 30rpx;
+  }
+  .content .avatar {
+    line-height: 80rpx;
+/* height: 70rpx; */
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 20rpx 30rpx;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .content .avatar .avatar-wrapper{
+    margin-left: 0rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .content .avatar .item-avater{
+    position: absolute; /* 要约束所在位置的子元素的位置要设置成绝对 */
+    left: 0; 
+    top: 0;
+    /* margin-top: 20rpx; */
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+  }
+
+
+  /* .item-text {
+    display: block;
+    color: rgb(80, 78, 78);
+    font-size: 34rpx;
+    margin-bottom: 20rpx;
+  } */
+
+  .form-item {
+    border-top: 1px solid #e5e5e5;
+    padding: 20rpx 0rpx 20rpx; 
+    line-height: 80rpx;
+    /* display: flex; */
+        /* justify-content: space-between; */
+    align-items: center;
+  }
+  
+  /* .item-picker{
+height: 20rpx;
+  } */
+
+  .btn { 
+    margin-top: 50rpx;
+    width: 100%; 
+    background-color: #6c85da;
+    color: #fff;
+    border-radius:18rpx;
+    font-size: 30rpx;
+   }
+  
+   .title{
+    font-size: 35rpx;
+    font-weight: 500;
+
+}
+  
